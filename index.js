@@ -39,17 +39,17 @@ app.get(["/old-page", "/old-page.html"], (req, res) => {
   res.redirect(301, "/new-page.html");
 });
 
-app.get("*", (req, res) => {
-  res.status(404);
-  if (req.accepts("html")) {
-    res.sendFile(path.join(__dirname, "view", "404.html"));
-  } else if (req.accepts("json")) {
-    res.json({ error: "404 JSON not found" });
-  } else req.accepts("txt");
-  {
-    res.type({ error: "404 text not found" });
-  }
-});
+// app.get("*", (req, res) => {
+//   res.status(404);
+//   if (req.accepts("html")) {
+//     res.sendFile(path.join(__dirname, "view", "404.html"));
+//   } else if (req.accepts("json")) {
+//     res.json({ error: "404 JSON not found" });
+//   } else req.accepts("txt");
+//   {
+//     res.type({ error: "404 text not found" });
+//   }
+// });
 
 app.use(function (err, req, res, next) {
   console.log(err.stack);
