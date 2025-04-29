@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 app.use("/subdir", require("./routes/subdir.js"));
 app.use("/", require("./routes/root.js"));
+app.use("/employees", require("./routes/api/employees.js"));
 
 const whitelist = ["http://127.0.0.1:5500", "http://localhost:3500"];
 const corsOptions = {
